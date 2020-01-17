@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { Board, Popup } from '~/components';
@@ -22,15 +22,19 @@ function App() {
         dispatch(actions.move(index, currentMove));
         dispatch(actions.checkWinning());
         dispatch(actions.checkGameEnd());
-        dispatch(actions.changeSide());
       }
     },
     [dispatch, currentMove, board],
   );
 
-  const resetGame = useCallback(() => dispatch(actions.resetGame()), [
-    dispatch,
-  ]);
+  const resetGame = useCallback(() => {
+    dispatch(actions.resetGame());
+    dispatch(actions.bootstrap());
+  }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(actions.bootstrap());
+  }, [dispatch]);
 
   return (
     <>

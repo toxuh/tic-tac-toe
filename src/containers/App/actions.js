@@ -1,15 +1,15 @@
 import * as types from './types';
 
+export const bootstrap = () => ({
+  type: types.BOOTSTRAP,
+});
+
 export const move = (index, currentMove) => ({
   type: types.MOVE,
   payload: {
     index,
     currentMove,
   },
-});
-
-export const changeSide = () => ({
-  type: types.CHANGE_SIDE,
 });
 
 export const checkGameEnd = () => ({
