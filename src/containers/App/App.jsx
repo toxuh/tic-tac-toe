@@ -17,14 +17,27 @@ function App() {
   const isDraft = useSelector(selectors.isDraftSelector);
 
   const doMove = useCallback(
-    (index) => dispatch(actions.move(index, currentMove)),
-    [dispatch, currentMove],
+    (index) => {
+      if (!board[index]) {
+        dispatch(actions.move(index, currentMove));
+        dispatch(actions.checkWinning());
+        dispatch(actions.checkGameEnd());
+        dispatch(actions.changeSide());
+      }
+    },
+    [dispatch, currentMove, board],
   );
+
+  const resetGame = useCallback(() => dispatch(actions.resetGame()), [
+    dispatch,
+  ]);
 
   return (
     <>
       <Board board={board} currentMove={currentMove} doMove={doMove} />
-      {gameOver && <Popup isDraft={isDraft} winner={currentMove} />}
+      {gameOver && (
+        <Popup isDraft={isDraft} winner={currentMove} resetGame={resetGame} />
+      )}
     </>
   );
 }

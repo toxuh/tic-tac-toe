@@ -15,9 +15,11 @@ const Board = (props) => {
 
   return (
     <div className={classes}>
-      {board.map((cellContent, i) => (
-        <Cell index={i} mark={cellContent} doMove={doMove} />
-      ))}
+      {board.map((cellContent, i) => {
+        const key = `Cell${i}`;
+
+        return <Cell key={key} index={i} mark={cellContent} doMove={doMove} />;
+      })}
     </div>
   );
 };
@@ -25,7 +27,7 @@ const Board = (props) => {
 Board.propTypes = {
   doMove: PropTypes.func.isRequired,
   board: PropTypes.arrayOf(PropTypes.oneOf(['x', 'o', false])),
-  currentMove: PropTypes.oneOf(['x', 'y']),
+  currentMove: PropTypes.oneOf(['x', 'o']),
 };
 
 Board.defaultProps = {
