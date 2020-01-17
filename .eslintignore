@@ -2,6 +2,7 @@
 !.eslintrc.js
 !.prettierrc.js
 !.huskyrc.js
-!.README.md
+webpack.config.js
+README.md
 
 src/serviceWorker.js

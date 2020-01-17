@@ -7,7 +7,7 @@
     "tic-tac-toe",
     "game"
   ],
-  "homepage": "https://github.com/toxuh/tic-tac-toe",
+  "homepage": "https://toxuh.github.io/tic-tac-toe/",
   "bugs": {
     "url": "https://github.com/toxuh/tic-tac-toe/issues",
     "email": "zakharov.toxa@gmail.com"
@@ -44,7 +44,9 @@
     "lint:fix": "eslint --fix .",
     "lint:staged": "lint-staged",
     "format": "prettier --write \"**/*.js?(x)\"",
-    "extract-messages": "extract-messages -l=en,ru -o src/i18n/translations --flat true \"src/**/messages.js\""
+    "extract-messages": "extract-messages -l=en,ru -o src/i18n/translations --flat true \"src/**/messages.js\"",
+    "predeploy": "craco build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -88,6 +90,7 @@
     "eslint-plugin-react": "7.x",
     "eslint-plugin-react-hooks": "1.x",
     "extract-react-intl-messages": "^2.3.5",
+    "gh-pages": "^2.2.0",
     "husky": "^4.0.7",
     "lint-staged": "^9.5.0",
     "prettier": "^1.19.1",
