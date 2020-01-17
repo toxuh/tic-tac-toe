@@ -10,7 +10,13 @@ const composeEnhancers = reduxDevToolsCompose
   : compose;
 
 const configureStore = (initialState) => {
-  return configureProdStore(initialState, [actionLogger], composeEnhancers);
+  const store = configureProdStore(
+    initialState,
+    [actionLogger],
+    composeEnhancers,
+  );
+
+  return store;
 };
 
 export default configureStore;

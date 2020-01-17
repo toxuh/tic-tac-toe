@@ -1,9 +1,12 @@
 import React from 'react';
 
+import { Board, Popup } from '~/components';
+
 function App() {
   return (
     <>
-      <h1>Init commit</h1>
+      <Board />
+      <Popup />
     </>
   );
 }

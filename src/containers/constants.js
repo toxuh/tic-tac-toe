@@ -1,1 +1,1 @@
-export const STORE_SLICE_NAME = 'ui';
+export const STORE_SLICE_NAME = 'game';
