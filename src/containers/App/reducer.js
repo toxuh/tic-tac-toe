@@ -1,10 +1,23 @@
 import produce from 'immer';
 
+import * as types from './types';
+
 export const initialState = {
-  table: [],
-  isWin: false,
+  board: [false, false, false, false, false, false, false, false, false],
+  gameOver: false,
   isDraft: false,
-  firstMoveCross: true,
+  currentMove: 'x',
 };
 
-export default (state = initialState) => produce(state, () => {});
+export default (state = initialState, action) =>
+  produce(state, (draft) => {
+    const { type, payload } = action;
+
+    switch (type) {
+      case types.MOVE: {
+        const { index, currentMove } = payload;
+
+        draft.board[index] = currentMove;
+      }
+    }
+  });

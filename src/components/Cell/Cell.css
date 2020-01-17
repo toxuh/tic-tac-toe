@@ -1,0 +1,88 @@
+.Cell {
+  align-items: center;
+  border: 1px solid #000;
+  cursor: pointer;
+  display: flex;
+  height: var(--cell-size);
+  justify-content: center;
+  position: relative;
+  width: var(--cell-size);
+}
+
+.Cell:first-child,
+.Cell:nth-child(2),
+.Cell:nth-child(3) {
+  border-top: none;
+}
+
+.Cell:nth-child(3n+1) {
+  border-left: none;
+}
+
+.Cell:nth-child(3n+3) {
+  border-right: none;
+}
+
+.Cell:last-child,
+.Cell:nth-child(7),
+.Cell:nth-child(8) {
+  border-bottom: none;
+}
+
+.Cell.x,
+.Cell.o {
+  cursor: not-allowed;
+}
+
+.Cell.x::after,
+.Cell.x::before,
+.Cell.o::before {
+  background-color: #000;
+}
+
+.Cell:not(.x):not(.o):hover::after,
+.Cell:not(.x):not(.o):hover::before {
+  background-color: #d3d3d3;
+}
+
+.Cell.x::after,
+.Cell.x::before,
+.Board.x .Cell:not(.x):not(.o):hover::after,
+.Board.x .Cell:not(.x):not(.o):hover::before {
+  content: '';
+  height: var(--mark-size);
+  position: absolute;
+  width: calc(var(--mark-size) * .15);
+}
+
+.Cell.x::after,
+.Board.x .Cell:not(.x):not(.o):hover::after {
+  transform: rotate(-45deg);
+}
+
+.Cell.x::before,
+.Board.x .Cell:not(.x):not(.o):hover::before {
+  transform: rotate(45deg);
+}
+
+.Cell.o::after,
+.Cell.o::before,
+.Board.o .Cell:not(.x):not(.o):hover::after,
+.Board.o .Cell:not(.x):not(.o):hover::before {
+  border-radius: 50%;
+  content: '';
+  position: absolute;
+}
+
+.Cell.o::before,
+.Board.o .Cell:not(.x):not(.o):hover::before {
+  height: var(--mark-size);
+  width: var(--mark-size);
+}
+
+.Cell.o::after,
+.Board.o .Cell:not(.x):not(.o):hover::after {
+  background-color: #fff;
+  height: calc(var(--mark-size) * .7);
+  width: calc(var(--mark-size) * .7);
+}
