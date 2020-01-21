@@ -71,7 +71,7 @@ export default (state = initialState, action) =>
       case types.CHECK_WINNING: {
         const win = draft.settings.winningPositions.some((position) => {
           return position.every((index) => {
-            return draft.board[index];
+            return draft.board[index] === draft.currentMove;
           });
         });
 
