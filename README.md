@@ -1,5 +1,5 @@
 # tic-tac-toe
-Tic-tac-toe game, using react, html5, css3.
+Tic-tac-toe game, that uses react, html5, css3. You can test it [here](https://toxuh.github.io/tic-tac-toe/).
 
 ## Installation
 ```javascript
